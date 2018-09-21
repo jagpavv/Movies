@@ -13,6 +13,7 @@
 		AC8A22F821552CEF00CA089B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8A22F621552CEF00CA089B /* Main.storyboard */; };
 		AC8A22FA21552CF100CA089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC8A22F921552CF100CA089B /* Assets.xcassets */; };
 		AC8A22FD21552CF100CA089B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8A22FB21552CF100CA089B /* LaunchScreen.storyboard */; };
+		AC8A230521552E4000CA089B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8A230421552E4000CA089B /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AC8A22F921552CF100CA089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC8A22FC21552CF100CA089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC8A22FE21552CF100CA089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC8A230421552E4000CA089B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CF7F846D33CDE8281BF717F3 /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
 		EECEA58C088EC88DE5E85EA4 /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +62,7 @@
 		AC8A22E621552CEF00CA089B = {
 			isa = PBXGroup;
 			children = (
+				AC8A230421552E4000CA089B /* Default-568h@2x.png */,
 				AC8A22F121552CEF00CA089B /* Movies */,
 				AC8A22F021552CEF00CA089B /* Products */,
 				72407A54AA54685AD06A3A8F /* Pods */,
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC8A22FD21552CF100CA089B /* LaunchScreen.storyboard in Resources */,
+				AC8A230521552E4000CA089B /* Default-568h@2x.png in Resources */,
 				AC8A22FA21552CF100CA089B /* Assets.xcassets in Resources */,
 				AC8A22F821552CEF00CA089B /* Main.storyboard in Resources */,
 			);
