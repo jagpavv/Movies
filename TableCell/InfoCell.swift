@@ -13,10 +13,6 @@ class InfoCell: UITableViewCell {
     self.overviewLabel.text = data.overview
   }
 
-//  func fillImg(image: UIImage) {
-//    self.poster.image = image
-//  }
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

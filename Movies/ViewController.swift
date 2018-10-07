@@ -73,28 +73,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     cell.fillLable(data: movieData)
 
 
-    if let imgURL = URL(string: "http://image.tmdb.org/t/p/w92/kBf3g9crrADGMc2AMAMlLBgSm2h.jpg") {
-      let img = try? Data(contentsOf: imgURL)
-      if let img = img {
-        let image = UIImage(data: img)
-        cell.imageView?.image = image
-//        cell.fillImg(image: image)
-
+    if let posterPath = self.moiveData[indexPath.row].poster_path {
+      DispatchQueue.global().async {
+        if let imgURL = URL(string: "http://image.tmdb.org/t/p/w92/" + "\(posterPath)") {
+          let img = try? Data(contentsOf: imgURL)
+          if let img = img {
+            let image = UIImage(data: img)
+            DispatchQueue.main.async {
+              cell.imageView?.image = image
+            }
+          }
+        }
       }
-
     }
-
-
-
-
-
-
     return cell
-
-// suggest
-//      let sugesstSearchResult = self.sugesstSearchResult[indexPath.row]
-//      let cell = tableView.dequeueReusableCell(withIdentifier: "suggestCell") as! SuggestCell
-//      cell.fillLabel(suggest: sugesstSearchResult)
-//      return cell
   }
 }
