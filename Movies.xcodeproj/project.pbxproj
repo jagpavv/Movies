@@ -17,6 +17,10 @@
 		AC8A230521552E4000CA089B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8A230421552E4000CA089B /* Default-568h@2x.png */; };
 		ACDA60CF216A0E7800CF43AE /* SuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA60CD216A0E7800CF43AE /* SuggestCell.swift */; };
 		ACDA60D0216A0E7800CF43AE /* SuggestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDA60CE216A0E7800CF43AE /* SuggestCell.xib */; };
+		ACDA60D7216A25F900CF43AE /* BlankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA60D5216A25F900CF43AE /* BlankCell.swift */; };
+		ACDA60D8216A25F900CF43AE /* BlankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDA60D6216A25F900CF43AE /* BlankCell.xib */; };
+		ACDA60DD216A50F100CF43AE /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA60DB216A50F100CF43AE /* InfoCell.swift */; };
+		ACDA60DE216A50F100CF43AE /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDA60DC216A50F100CF43AE /* InfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		AC8A230421552E4000CA089B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACDA60CD216A0E7800CF43AE /* SuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestCell.swift; sourceTree = "<group>"; };
 		ACDA60CE216A0E7800CF43AE /* SuggestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestCell.xib; sourceTree = "<group>"; };
+		ACDA60D5216A25F900CF43AE /* BlankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCell.swift; sourceTree = "<group>"; };
+		ACDA60D6216A25F900CF43AE /* BlankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlankCell.xib; sourceTree = "<group>"; };
+		ACDA60DB216A50F100CF43AE /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		ACDA60DC216A50F100CF43AE /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		CF7F846D33CDE8281BF717F3 /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
 		EECEA58C088EC88DE5E85EA4 /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +112,10 @@
 			children = (
 				ACDA60CD216A0E7800CF43AE /* SuggestCell.swift */,
 				ACDA60CE216A0E7800CF43AE /* SuggestCell.xib */,
+				ACDA60D5216A25F900CF43AE /* BlankCell.swift */,
+				ACDA60D6216A25F900CF43AE /* BlankCell.xib */,
+				ACDA60DB216A50F100CF43AE /* InfoCell.swift */,
+				ACDA60DC216A50F100CF43AE /* InfoCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -170,6 +182,8 @@
 			files = (
 				AC8A22FD21552CF100CA089B /* LaunchScreen.storyboard in Resources */,
 				ACDA60D0216A0E7800CF43AE /* SuggestCell.xib in Resources */,
+				ACDA60DE216A50F100CF43AE /* InfoCell.xib in Resources */,
+				ACDA60D8216A25F900CF43AE /* BlankCell.xib in Resources */,
 				AC8A230521552E4000CA089B /* Default-568h@2x.png in Resources */,
 				AC8A22FA21552CF100CA089B /* Assets.xcassets in Resources */,
 				AC8A22F821552CEF00CA089B /* Main.storyboard in Resources */,
@@ -225,9 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC04B86721677A3000C20720 /* MovieInfo.swift in Sources */,
+				ACDA60DD216A50F100CF43AE /* InfoCell.swift in Sources */,
 				AC8A22F521552CEF00CA089B /* ViewController.swift in Sources */,
 				ACDA60CF216A0E7800CF43AE /* SuggestCell.swift in Sources */,
 				AC8A22F321552CEF00CA089B /* AppDelegate.swift in Sources */,
+				ACDA60D7216A25F900CF43AE /* BlankCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
