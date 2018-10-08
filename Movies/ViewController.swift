@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
   var moiveData = [MovieInfo]()
   private var selectedMoiveData: MovieInfo?
+  var filteredMovieData = [MovieInfo]()
 
   let searchController = UISearchController(searchResultsController: nil)
 //  let sugesstSearchResult = ["Batman", "Batman begins", "Batman & Robin", "Batman", "Batman begins", "Batman & Robin"]
@@ -55,16 +56,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     searchTableView.register(infoCellNibName, forCellReuseIdentifier: "infoCell")
   }
 
+//  override func viewWillAppear(_ animated: Bool) {
+//    super.viewWillAppear(animated)
+//    self.searchTableView.reloadData()
+//  }
+
   // searchBar
 
   // suggest list table view
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return moiveData.count
-
-// suggest
-//      return sugesstSearchResult.count
   }
-
 
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,11 +74,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
     cell.fillLable(data: movieData)
 
+    cell.textLabel?.text = nil
+
 
     if let posterPath = self.moiveData[indexPath.row].poster_path {
-      DispatchQueue.global().async {
-        if let imgURL = URL(string: "http://image.tmdb.org/t/p/w92/" + "\(posterPath)") {
-          let img = try? Data(contentsOf: imgURL)
+      if let imgURL = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") {
+        DispatchQueue.global().async {
+          let img = try? Data(contentsOf: imgURL) // Data(contentsOf:) method will download the contents of the url synchronously in the same thread the code is being executed, so do not invoke this in the main thread of your application.
           if let img = img {
             let image = UIImage(data: img)
             DispatchQueue.main.async {
