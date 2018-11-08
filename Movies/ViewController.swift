@@ -7,13 +7,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var searchTableView: UITableView!
-  
 
   var moiveData = [MovieInfo]()
   private var selectedMoiveData: MovieInfo?
   var filteredMovieData = [MovieInfo]()
 
-  let searchController = UISearchController(searchResultsController: nil)
+//  let searchController = UISearchController(searchResultsController: nil)
 //  let sugesstSearchResult = ["Batman", "Batman begins", "Batman & Robin", "Batman", "Batman begins", "Batman & Robin"]
   let parameters: Parameters = [
     "api_key": "2696829a81b1b5827d515ff121700838",
@@ -62,6 +61,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //  }
 
   // searchBar
+//  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//    filteredMovieData = self.moiveData.filter({ (<#MovieInfo#>) -> Bool in
+//      <#code#>
+//    })
+//  }
 
   // suggest list table view
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,9 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let movieData = self.moiveData[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
     cell.fillLable(data: movieData)
-
     cell.textLabel?.text = nil
-
 
     if let posterPath = self.moiveData[indexPath.row].poster_path {
       if let imgURL = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") {
@@ -85,6 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let image = UIImage(data: img)
             DispatchQueue.main.async {
               cell.imageView?.image = image
+              self.searchTableView.reloadData()
             }
           }
         }
