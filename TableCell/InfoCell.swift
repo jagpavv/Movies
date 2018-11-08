@@ -16,8 +16,6 @@ class InfoCell: UITableViewCell {
     self.overviewLabel.text = data.overview
 
     self.posterPath = data.poster_path
-    print(posterPath)
-
   }
 
 
