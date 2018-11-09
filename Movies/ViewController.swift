@@ -12,14 +12,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   private var selectedMoiveData: MovieInfo?
   var filteredMovieData = [MovieInfo]()
 
-//  let searchController = UISearchController(searchResultsController: nil)
-//  let sugesstSearchResult = ["Batman", "Batman begins", "Batman & Robin", "Batman", "Batman begins", "Batman & Robin"]
   let parameters: Parameters = [
     "api_key": "2696829a81b1b5827d515ff121700838",
     "query": "batman",
     "page": 1
   ]
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,29 +42,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    searchTableView.dataSource = self
 //    searchTableView.delegate = self
 
-//    let nibName = UINib(nibName: "SuggestCell", bundle: nil)
-//    searchTableView.register(nibName, forCellReuseIdentifier: "suggestCell")
-//
-//    let nibName1 = UINib(nibName: "BlankCell", bundle: nil)
-//    searchTableView.register(nibName1, forCellReuseIdentifier: "blankCell")
 
     let infoCellNibName = UINib(nibName: "InfoCell", bundle: nil)
     searchTableView.register(infoCellNibName, forCellReuseIdentifier: "infoCell")
   }
 
-//  override func viewWillAppear(_ animated: Bool) {
-//    super.viewWillAppear(animated)
-//    self.searchTableView.reloadData()
-//  }
-
-  // searchBar
-//  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//    filteredMovieData = self.moiveData.filter({ (<#MovieInfo#>) -> Bool in
-//      <#code#>
-//    })
-//  }
-
-  // suggest list table view
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return moiveData.count
   }
@@ -77,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let movieData = self.moiveData[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
     cell.fillLable(data: movieData)
-    cell.textLabel?.text = nil
+//    cell.textLabel?.text = nil
 
     if let posterPath = self.moiveData[indexPath.row].poster_path {
       if let imgURL = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") {
