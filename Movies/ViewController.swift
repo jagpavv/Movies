@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Foundation
+import Kingfisher
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -12,17 +13,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   private var selectedMoiveData: MovieInfo?
   var filteredMovieData = [MovieInfo]()
 
-//  let searchController = UISearchController(searchResultsController: nil)
-//  let sugesstSearchResult = ["Batman", "Batman begins", "Batman & Robin", "Batman", "Batman begins", "Batman & Robin"]
   let parameters: Parameters = [
     "api_key": "2696829a81b1b5827d515ff121700838",
     "query": "batman",
     "page": 1
   ]
 
-
   override func viewDidLoad() {
     super.viewDidLoad()
+
+
+    self.searchTableView.estimatedRowHeight = 88.0
+    self.searchTableView.rowHeight = UITableView.automaticDimension
 
     // get data from API
     Alamofire.request("http://api.themoviedb.org/3/search/movie", method: .get, parameters: parameters).validate().responseJSON { response in
@@ -34,7 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
           let a = MovieInfo.init(json: v)
           self.moiveData.append(a)
         }
-//        print(self.moiveData)
+        //        print(self.moiveData)
         self.searchTableView.reloadData()
 
       case .failure(let error):
@@ -42,32 +44,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
       }
     }
 
-//    searchTableView.dataSource = self
-//    searchTableView.delegate = self
+    //    searchTableView.dataSource = self
+    //    searchTableView.delegate = self
 
-//    let nibName = UINib(nibName: "SuggestCell", bundle: nil)
-//    searchTableView.register(nibName, forCellReuseIdentifier: "suggestCell")
-//
-//    let nibName1 = UINib(nibName: "BlankCell", bundle: nil)
-//    searchTableView.register(nibName1, forCellReuseIdentifier: "blankCell")
+//    let infoCellNibName = UINib(nibName: "InfoCell", bundle: nil)
+//    searchTableView.register(infoCellNibName, forCellReuseIdentifier: "infoCell")
 
-    let infoCellNibName = UINib(nibName: "InfoCell", bundle: nil)
-    searchTableView.register(infoCellNibName, forCellReuseIdentifier: "infoCell")
   }
 
-//  override func viewWillAppear(_ animated: Bool) {
-//    super.viewWillAppear(animated)
-//    self.searchTableView.reloadData()
-//  }
-
-  // searchBar
-//  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//    filteredMovieData = self.moiveData.filter({ (<#MovieInfo#>) -> Bool in
-//      <#code#>
-//    })
-//  }
-
-  // suggest list table view
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return moiveData.count
   }
@@ -77,19 +61,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let movieData = self.moiveData[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
     cell.fillLable(data: movieData)
-    cell.textLabel?.text = nil
 
     if let posterPath = self.moiveData[indexPath.row].poster_path {
-      if let imgURL = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") {
-        DispatchQueue.global().async {
-          let img = try? Data(contentsOf: imgURL) // Data(contentsOf:) method will download the contents of the url synchronously in the same thread the code is being executed, so do not invoke this in the main thread of your application.
-          if let img = img {
-            let image = UIImage(data: img)
-            DispatchQueue.main.async {
-              cell.imageView?.image = image
-              self.searchTableView.reloadData()
-            }
-          }
+      guard let url = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") else {
+        return cell
+      }
+
+      cell.poster.kf.setImage(with: url)
+
+      if let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil) {
+        if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
+          let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! CGFloat
+          let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! CGFloat
+          print("the image width is: \(pixelWidth)")
+          print("the image height is: \(pixelHeight)")
+
+          cell.imageWidthConstraint.constant = pixelWidth
+          cell.imageHeightConstraint.constant = pixelHeight
         }
       }
     }
