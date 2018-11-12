@@ -7,6 +7,11 @@ class InfoCell: UITableViewCell {
   @IBOutlet weak var overviewLabel: UILabel!
   @IBOutlet weak var poster: UIImageView!
 
+  @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
+
+  var posterPath: String?
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -16,6 +21,7 @@ class InfoCell: UITableViewCell {
     self.movieTitleLabel.text = data.title
     self.releaseDateLabel.text = data.release_date
     self.overviewLabel.text = data.overview
+    self.posterPath = data.poster_path
   }
 
   override func prepareForReuse() {
@@ -31,5 +37,4 @@ class InfoCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-  
 }

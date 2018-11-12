@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3630D552E67EEDC735D5EEFB /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26316993D41EEF95DC0375 /* Pods_Movies.framework */; };
 		AC04B86721677A3000C20720 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04B86621677A3000C20720 /* MovieInfo.swift */; };
-		AC7189FF2194EF9D00AE402A /* placeholderIMG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC7189FE2194EF9D00AE402A /* placeholderIMG.jpg */; };
 		AC8A22F321552CEF00CA089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A22F221552CEF00CA089B /* AppDelegate.swift */; };
 		AC8A22F521552CEF00CA089B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A22F421552CEF00CA089B /* ViewController.swift */; };
 		AC8A22F821552CEF00CA089B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8A22F621552CEF00CA089B /* Main.storyboard */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		4A26316993D41EEF95DC0375 /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC04B86621677A3000C20720 /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
-		AC7189FE2194EF9D00AE402A /* placeholderIMG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderIMG.jpg; sourceTree = "<group>"; };
 		AC8A22EF21552CEF00CA089B /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8A22F221552CEF00CA089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC8A22F421552CEF00CA089B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				AC04B86621677A3000C20720 /* MovieInfo.swift */,
 				AC8A22F621552CEF00CA089B /* Main.storyboard */,
 				AC8A22F921552CF100CA089B /* Assets.xcassets */,
-				AC7189FE2194EF9D00AE402A /* placeholderIMG.jpg */,
 				AC8A22FB21552CF100CA089B /* LaunchScreen.storyboard */,
 				AC8A22FE21552CF100CA089B /* Info.plist */,
 			);
@@ -172,7 +169,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC8A22FD21552CF100CA089B /* LaunchScreen.storyboard in Resources */,
-				AC7189FF2194EF9D00AE402A /* placeholderIMG.jpg in Resources */,
 				ACDA60DE216A50F100CF43AE /* InfoCell.xib in Resources */,
 				AC8A230521552E4000CA089B /* Default-568h@2x.png in Resources */,
 				AC8A22FA21552CF100CA089B /* Assets.xcassets in Resources */,
@@ -209,11 +205,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Movies/Pods-Movies-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
