@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   var moiveData = [MovieInfo]()
   private var selectedMoiveData: MovieInfo?
   var currentMovieData = [MovieInfo]()
-  var searching = false
+  var isSearching = false
 
   let parameters: Parameters = [
     "api_key": "2696829a81b1b5827d515ff121700838",
@@ -44,10 +44,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     self.searchTableView.estimatedRowHeight = 88.0
     self.searchTableView.rowHeight = UITableView.automaticDimension
 
+    noResultLabel.isHidden = true
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if searching {
+
+    if isSearching {
       return currentMovieData.count
     } else {
       return moiveData.count
@@ -56,28 +58,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    if searching {
-    let movieData = self.currentMovieData[indexPath.row]
-    let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
-    cell.fillLable(data: movieData)
 
-    if let posterPath = self.currentMovieData[indexPath.row].poster_path {
-      guard let url = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") else {
-        return cell
-      }
-      cell.poster.kf.setImage(with: url)
+    if isSearching {
 
-      if let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil) {
-        if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
-          let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! CGFloat
-          let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! CGFloat
+      let movieData = self.currentMovieData[indexPath.row]
+      let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
+      cell.fillLable(data: movieData)
 
-          cell.imageWidthConstraint.constant = pixelWidth
-          cell.imageHeightConstraint.constant = pixelHeight
+      if let posterPath = self.currentMovieData[indexPath.row].poster_path {
+        guard let url = URL(string: "http://image.tmdb.org/t/p/w185/" + "\(posterPath)") else {
+          return cell
+        }
+        cell.poster.kf.setImage(with: url)
+
+        if let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil) {
+          if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
+            let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! CGFloat
+            let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! CGFloat
+
+            cell.imageWidthConstraint.constant = pixelWidth
+            cell.imageHeightConstraint.constant = pixelHeight
+          }
         }
       }
-    }
-    return cell
+      return cell
     } else {
       let movieData = self.moiveData[indexPath.row]
       let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoCell
@@ -103,18 +107,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
   }
 
-//  search bar
+  //  search bar
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
     if (searchBar.text?.isEmpty)! {
-      searching = false
-      searchBar.text? = ""
-      searchTableView.reloadData()
+      noTextInSearchBar()
     } else {
       currentMovieData = moiveData.filter({ (t) -> Bool in
         guard let text = searchBar.text else { return false }
         print(text)
-        searching = true
+        isSearching = true
         return (t.title?.contains(text))!
       })
       searchTableView.reloadData()
@@ -122,7 +124,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   }
 
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-    searching = false
+    noTextInSearchBar()
+  }
+
+  func noTextInSearchBar() {
+    isSearching = false
     searchBar.text? = ""
     searchTableView.reloadData()
   }
