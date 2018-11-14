@@ -44,7 +44,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     self.searchTableView.estimatedRowHeight = 88.0
     self.searchTableView.rowHeight = UITableView.automaticDimension
 
-    noResultLabel.isHidden = true
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
