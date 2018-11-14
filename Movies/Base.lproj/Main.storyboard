@@ -106,7 +106,7 @@
                             <constraint firstItem="A1L-WN-wUp" firstAttribute="top" secondItem="0gE-LQ-DB0" secondAttribute="bottom" id="hk9-v0-zMI"/>
                             <constraint firstItem="0gE-LQ-DB0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lqD-Xw-oXm"/>
                             <constraint firstItem="A1L-WN-wUp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lzS-sA-WG5"/>
-                            <constraint firstItem="0gE-LQ-DB0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="63" id="sGT-ZV-qDe"/>
+                            <constraint firstItem="0gE-LQ-DB0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-1" id="sGT-ZV-qDe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
