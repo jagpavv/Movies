@@ -105,13 +105,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 //  search bar
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    currentMovieData = moiveData.filter({ (t) -> Bool in
-      guard let text = searchBar.text else { return false }
-      print(text)
-      searching = true
-      return (t.title?.contains(text))!
-    })
-    searchTableView.reloadData()
+
+    if (searchBar.text?.isEmpty)! {
+      searching = false
+      searchBar.text? = ""
+      searchTableView.reloadData()
+    } else {
+      currentMovieData = moiveData.filter({ (t) -> Bool in
+        guard let text = searchBar.text else { return false }
+        print(text)
+        searching = true
+        return (t.title?.contains(text))!
+      })
+      searchTableView.reloadData()
+    }
   }
 
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
