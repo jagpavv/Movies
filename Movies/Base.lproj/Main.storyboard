@@ -36,19 +36,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VP-ti-AUJ" userLabel="Release Date Label">
-                                                    <rect key="frame" x="98" y="29" width="269" height="21"/>
+                                                    <rect key="frame" x="98" y="37" width="269" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMc-y0-bMm" userLabel="Overview Label">
-                                                    <rect key="frame" x="98" y="58" width="269" height="30.5"/>
+                                                    <rect key="frame" x="98" y="66" width="269" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1g-ST-3rr" userLabel="Movie Title Label">
-                                                    <rect key="frame" x="98" y="0.0" width="269" height="21"/>
+                                                    <rect key="frame" x="98" y="8" width="269" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="LMc-y0-bMm" secondAttribute="trailing" constant="8" id="lYV-6m-xz9"/>
                                                 <constraint firstAttribute="trailing" secondItem="8VP-ti-AUJ" secondAttribute="trailing" constant="8" id="mzh-7i-snn"/>
                                                 <constraint firstItem="tyZ-P4-OHe" firstAttribute="leading" secondItem="Ngg-Bl-fnn" secondAttribute="leading" id="nEB-hy-Iep"/>
-                                                <constraint firstItem="v1g-ST-3rr" firstAttribute="top" secondItem="Ngg-Bl-fnn" secondAttribute="top" id="vTE-Ov-cWU"/>
+                                                <constraint firstItem="v1g-ST-3rr" firstAttribute="top" secondItem="Ngg-Bl-fnn" secondAttribute="top" constant="8" id="vTE-Ov-cWU"/>
                                                 <constraint firstItem="8VP-ti-AUJ" firstAttribute="leading" secondItem="tyZ-P4-OHe" secondAttribute="trailing" constant="8" id="ytt-dl-7b8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -85,7 +85,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RcL-cZ-hOI"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0gE-LQ-DB0">
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gE-LQ-DB0">
                                 <rect key="frame" x="0.0" y="63" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
